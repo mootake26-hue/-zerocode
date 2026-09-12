@@ -24,4 +24,16 @@ class ChatController extends Controller
 
         return redirect('/chat');
     }
+
+    public function edit(Message $message)
+    {
+        return view('edit', ['message' => $message]);
+    }
+
+    public function destroy(Message $message)
+    {
+        $message->delete();
+
+        return redirect('/chat');
+    }
 }
