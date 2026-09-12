@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use App\Models\Message;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,5 @@ Route::get('/chat', function () {
 
     return view('chat', ['messages' => $messages]);
 });
+
+Route::post('/chat', [ChatController::class, 'store']);
