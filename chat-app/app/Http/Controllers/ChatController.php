@@ -30,6 +30,19 @@ class ChatController extends Controller
         return view('edit', ['message' => $message]);
     }
 
+    public function update(Request $request, Message $message)
+    {
+        $validated = $request->validate([
+            'body' => 'required',
+        ], [
+            'body.required' => 'メッセージを入力してください',
+        ]);
+
+        $message->update($validated);
+
+        return redirect('/chat');
+    }
+
     public function destroy(Message $message)
     {
         $message->delete();

@@ -1,7 +1,7 @@
 <?php
 
 $name = 'はな';
-$members = 4;
+$members = 2;
 $total = $members + 1;
 
 echo $name . 'さんが入室しました' . "\n";

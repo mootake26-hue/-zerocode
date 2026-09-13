@@ -23,5 +23,3 @@ Route::post('/chat', [ChatController::class, 'store']);
 Route::delete('/messages/{message}', [ChatController::class, 'destroy']);
 Route::get('/messages/{message}/edit', [ChatController::class, 'edit']);
 Route::patch('/messages/{message}', [ChatController::class, 'update']);
-
-
