@@ -10,7 +10,7 @@
   <div class="max-w-md mx-auto h-screen flex flex-col bg-gray-200 shadow-lg">
 
     <header class="bg-white px-4 py-3 flex items-center gap-3 shadow-sm">
-      <a href="/chat" class="text-sm text-gray-500">← もどる</a>
+            <a href="/rooms/{{ $message->room_id }}" class="text-sm text-gray-500">← もどる</a>
       <h1 class="font-bold">メッセージの編集</h1>
     </header>
 

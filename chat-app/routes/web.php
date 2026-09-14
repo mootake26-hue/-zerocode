@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChatController;
-use App\Models\Message;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,14 +12,10 @@ Route::get('/hello', function () {
     return 'はじめまして';
 });
 
-Route::get('/chat', function () {
-    $messages = Message::all();
-
-    return view('chat', ['messages' => $messages]);
-});
-
-Route::post('/chat', [ChatController::class, 'store']);
-
 Route::delete('/messages/{message}', [ChatController::class, 'destroy']);
 Route::get('/messages/{message}/edit', [ChatController::class, 'edit']);
 Route::patch('/messages/{message}', [ChatController::class, 'update']);
+
+Route::get('/rooms', [RoomController::class, 'index']);
+Route::get('/rooms/{room}', [RoomController::class, 'show']);
+Route::post('/rooms/{room}', [ChatController::class, 'store']);

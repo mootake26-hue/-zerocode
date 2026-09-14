@@ -9,8 +9,9 @@
 <body class="bg-gray-50">
   <div class="max-w-md mx-auto h-screen flex flex-col bg-gray-200 shadow-lg">
 
-    <header class="bg-white px-4 py-3 shadow-sm">
-      <h1 class="font-bold text-center">チャット</h1>
+        <header class="bg-white px-4 py-3 flex items-center gap-3 shadow-sm">
+      <a href="/rooms" class="text-sm text-gray-500">← 一覧</a>
+      <h1 class="font-bold">{{ $room->name }}</h1>
     </header>
 
     <main class="flex-1 overflow-y-auto p-4">
@@ -32,7 +33,7 @@
       @endforeach
     </main>
            <footer class="bg-white p-3">
-      <form action="/chat" method="POST" class="flex gap-2">
+            <form action="/rooms/{{ $room->id }}" method="POST" class="flex gap-2">
         @csrf
         <input type="text" name="name" placeholder="名前" value="{{ old('name') }}"
           class="w-24 shrink-0 bg-gray-100 rounded-full px-4 py-2">
