@@ -9,8 +9,9 @@
 <body class="bg-gray-50">
   <div class="max-w-md mx-auto h-screen flex flex-col bg-gray-200 shadow-lg">
 
-    <header class="bg-white px-4 py-3 shadow-sm">
-      <h1 class="font-bold text-center">ルーム一覧</h1>
+       <header class="bg-white px-4 py-3 flex items-center justify-between shadow-sm">
+      <h1 class="font-bold">ルーム一覧</h1>
+      <a href="/enter" class="text-sm text-gray-500">{{ session('nickname') }}</a>
     </header>
 
     <main class="flex-1 overflow-y-auto p-4">
