@@ -15,8 +15,9 @@
       <a href="/enter" class="text-sm text-gray-500">{{ session('nickname') }}</a>
     </header>
     
-    <main class="flex-1 overflow-y-auto p-4">
-                            @foreach ($messages as $message)
+        <main class="flex-1 overflow-y-auto p-4">
+      <div id="messages">
+      @foreach ($messages as $message)
                       @if ($message->name === session('nickname'))
           <div class="mb-3 text-right">
             <p class="text-xs text-gray-500 mb-1">{{ $message->name }} {{ $message->created_at->format('H:i') }}</p>
@@ -40,7 +41,8 @@
             </div>
           </div>
         @endif
-      @endforeach
+           @endforeach
+      </div>
     </main>
               <footer class="bg-white p-3">
       <form action="/rooms/{{ $room->id }}" method="POST" class="flex gap-2">
@@ -55,5 +57,13 @@
     </footer>
 
   </div>
+  <script>
+    setInterval(async () => {
+      const res = await fetch(location.href);
+      const html = await res.text();
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      document.querySelector('#messages').innerHTML = doc.querySelector('#messages').innerHTML;
+    }, 5000);
+  </script>
 </body>
 </html>
