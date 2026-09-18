@@ -15,6 +15,9 @@
     </header>
 
     <main class="flex-1 overflow-y-auto p-4">
+            @if (session('greeting'))
+        <p class="text-center text-gray-600 mb-4">{{ session('greeting') }}</p>
+      @endif
       @foreach ($rooms as $room)
         <a href="/rooms/{{ $room->id }}"
           class="block bg-white rounded-2xl px-4 py-3 shadow-sm mb-3">

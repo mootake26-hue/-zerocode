@@ -23,7 +23,7 @@
         @error('body')
           <p class="text-red-500 text-sm mb-3">{{ $message }}</p>
         @enderror
-        <button type="submit" class="w-full bg-green-500 text-white font-bold rounded-full px-4 py-2">更新する</button>
+        <button type="submit" class="w-full bg-blue-500 text-white font-bold rounded-full px-4 py-2">更新する</button>
       </form>
     </main>
 

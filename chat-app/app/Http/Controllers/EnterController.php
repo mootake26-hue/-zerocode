@@ -21,6 +21,6 @@ class EnterController extends Controller
 
         session(['nickname' => $validated['nickname']]);
 
-        return redirect('/rooms');
+                return redirect('/rooms')->with('greeting', $validated['nickname'] . 'さん、ようこそ');
     }
 }
